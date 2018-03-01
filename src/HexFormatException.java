@@ -1,4 +1,7 @@
-
+/*
+ * This is the customized exception
+ * 
+ */
 public class HexFormatException extends Exception
 {
   private char hexChar;

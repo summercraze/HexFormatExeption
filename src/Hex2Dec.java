@@ -1,3 +1,7 @@
+/*
+ * This is Hex2Dec class which has added with a customized exception
+ * 
+ */
 import java.util.Scanner;
 
 public class Hex2Dec 
@@ -11,7 +15,9 @@ public class Hex2Dec
 		//prompt the user to enter a string
 		System.out.print("Enter a hex number: ");
 		String hex = input.nextLine();
-		try 
+		
+		//the try and catch block to catch hexdecimal
+		try  
 		{
 			System.out.println("The decimal value for hex number "
 					+ hex + " is " + hexToDecimal(hex.toUpperCase()));
@@ -21,15 +27,16 @@ public class Hex2Dec
 			System.out.println(ex);
 		}
 	}
-
+	
+	/** Method that throw the exception */
 	public static int hexToDecimal(String hex) throws HexFormatException 
 	{
 		int decimalValue = 0;
 
 		for(int i = 0; i < hex.length(); i++)
 		{
-			char hexChar = hex.charAt(i);
-			System.out.println(hexChar);
+			char hexChar = hex.charAt(i);		
+			//if the digit is not a hex number,an exception would be thrown
 			if(hexChar >= 'A' && hexChar <= 'F' || hexChar >= '0' && hexChar <= '9')
 			{
 				decimalValue = decimalValue * 16 + hexCharToDecimal(hexChar);
@@ -37,6 +44,7 @@ public class Hex2Dec
 			else
 				throw new HexFormatException(hexChar);
 		}
+		
 		return decimalValue;
 	}
 
